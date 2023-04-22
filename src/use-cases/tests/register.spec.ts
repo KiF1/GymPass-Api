@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { RegisterUseCase } from '../register'
+import { RegisterUseCase } from '../cases/register'
 import { compare } from 'bcryptjs'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
 import { UserAlreadyExistsError } from '../errors/user-already-exists-error'
@@ -42,7 +42,6 @@ describe('Register Use Case', () => {
       name: 'John Doe',
       email,
       password: '123456',
-    }),
-    ).rejects.toBeInstanceOf(UserAlreadyExistsError)
+    })).rejects.toBeInstanceOf(UserAlreadyExistsError)
   })
 })
